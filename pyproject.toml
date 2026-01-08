@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "droplet-corr-lab"
+version = "0.1.0"
+description = "Droplet-level corrosion analysis with ROI-based feature extraction"
+authors = [
+    { name = "Kathy Zhang" }
+]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "scikit-image",
+    "scikit-learn",
+    "opencv-python",
+    "torch"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
