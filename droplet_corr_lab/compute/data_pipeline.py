@@ -45,6 +45,15 @@ def combine_raw_features_across_frames(raw_features_dir: str,
     all_outer_color_features = []
     all_geo_features = []
 
+
+    bbox_sets = []
+
+    for frame_ID in frame_IDs_all:
+        data = load_pickle(os.path.join(raw_features_dir, f'{frame_ID}_raw.pkl'))
+        bbox_sets.append({bbox for (_, bbox) in data["identifiers"].values()})
+
+    persistent_bboxes = set.intersection(*bbox_sets)
+
     current_index_offset = 0
 
     for frame_ID in frame_IDs_all:
@@ -55,6 +64,30 @@ def combine_raw_features_across_frames(raw_features_dir: str,
         inner_color_features = data["inner_color_features"]      # ndarray (N, inner_dim)
         outer_color_features = data["outer_color_features"]      # ndarray (N, outer_dim)
         geo_features = data["geo_features"]                      # ndarray (N, 3) --> [area, perim, aspect]
+
+        # --- filter frame ---
+        filtered_identifiers = {}
+        filtered_inner = []
+        filtered_outer = []
+        filtered_geo = []
+
+        for local_idx, (f_id, bbox) in features_identifiers.items():
+            if bbox not in persistent_bboxes:
+                continue
+
+            filtered_identifiers[len(filtered_identifiers)] = (f_id, bbox)
+            filtered_inner.append(inner_color_features[local_idx])
+            filtered_outer.append(outer_color_features[local_idx])
+            filtered_geo.append(geo_features[local_idx])
+
+        # convert to arrays
+        filtered_inner = np.asarray(filtered_inner)
+        filtered_outer = np.asarray(filtered_outer)
+        filtered_geo = np.asarray(filtered_geo)
+        features_identifiers = filtered_identifiers
+        inner_color_features = filtered_inner
+        outer_color_features = filtered_outer
+        geo_features = filtered_geo
 
         # Shift local droplet indices to global indexing
         updated_features_identifiers = {
@@ -296,7 +329,7 @@ def primary_clustering(pc_df: pd.DataFrame,
                                                                    show_center=show_center
                                                                    )
 
-    print(avg_score, prob_args)
+    print(prob_args)
 
     if trace_back:
         pos_ref = os.path.join(image_dir_, f"{pos_ref_ID}.jpg")
@@ -495,7 +528,7 @@ def update_clustering(
                                                                    merge_initial_cluster_color=True
                                                                    )
 
-    print(avg_score, prob_args)
+    print(prob_args)
 
     return counts, prob_args
 

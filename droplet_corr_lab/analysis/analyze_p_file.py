@@ -1478,7 +1478,7 @@ class Visualization:
         :param
         ----------
         bbox : str
-            1-D array of normalized signal values in the range [0, 1].
+            bbox string of the droplet.
         region : str,
             choose from 'inner' and 'outer'
             Any other value raises an exception.
@@ -1906,12 +1906,12 @@ class Visualization:
 
         axs[0].legend(fontsize=16)
         axs[0].tick_params(axis='both', labelsize=15)
-        axs[0].set_xlabel(r'Droplet diameter ($\mu$m)$', fontsize=16)
+        axs[0].set_xlabel(r'Droplet diameter ($\mu$m)', fontsize=16)
         axs[0].set_ylabel('Density', fontsize=16)
 
         axs[1].legend(fontsize=16)
         axs[1].tick_params(axis='both', labelsize=15)
-        axs[1].set_xlabel(r'Droplet diameter ($\mu$m)$', fontsize=16)
+        axs[1].set_xlabel(r'Droplet diameter ($\mu$m)', fontsize=16)
         axs[1].set_ylabel('Cumulative density', fontsize=16)
 
         # Overlay X1/Y1 per-bin fractions
@@ -2114,4 +2114,5 @@ class Visualization:
             axs[1].tick_params(labelsize=15)
 
         return all_bin_feature, all_bin_avg_curve
+
 
