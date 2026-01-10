@@ -38,11 +38,12 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/KeerZhang345/Droplet-Optical-Microscopy-Images-Analysis.git
-cd Droplet-Optical-Microscopy-Images-Analysis
+cd Droplet-Optical-Microscopy-Images-Analysis```
 
 Install the package in editable mode:
 
-pip install -e .
+```bash
+pip install -e .```
 
 This installs the core dependencies required for image processing, feature
 extraction, and analysis.
