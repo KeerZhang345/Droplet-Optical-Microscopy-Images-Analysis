@@ -19,8 +19,13 @@ dependencies = [
     "scipy",
     "scikit-image",
     "scikit-learn",
-    "opencv-python",
-    "torch"
+    "opencv-python"
+]
+
+[project.optional-dependencies]
+segmentation = [
+    "torch",
+    "torchvision",
 ]
 
 [tool.setuptools.packages.find]
