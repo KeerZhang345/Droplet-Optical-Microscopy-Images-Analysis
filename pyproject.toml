@@ -26,6 +26,7 @@ dependencies = [
 segmentation = [
     "torch",
     "torchvision",
+    "segment-anything"
 ]
 
 [tool.setuptools.packages.find]
