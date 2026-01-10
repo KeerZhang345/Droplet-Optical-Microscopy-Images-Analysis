@@ -128,7 +128,7 @@ class AEDualROIFeatureBuilder:
 
         if save:
             os.makedirs(save_dir, exist_ok=True)
-            save_pickle(out, os.path.join(save_dir, f"{frame_ID}_ae.pkl"))
+            save_pickle(out, os.path.join(save_dir, f"{frame_ID}_raw.pkl"))
         else:
             return out
 
