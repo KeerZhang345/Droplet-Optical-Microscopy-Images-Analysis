@@ -1,4 +1,4 @@
-# DropletCorLab  
+# DropletCorrLab  
 *(Droplet Optical Microscopy Images Analysis)*
 
 **DropletCorLab** is a research-oriented Python package for the analysis of
