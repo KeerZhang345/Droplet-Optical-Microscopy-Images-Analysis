@@ -112,11 +112,23 @@ computational efficiency or production-level robustness.
 Users are expected to adapt and extend the code for their specific
 experimental setups and research questions.
 
-## Citation
-
-If you use this code in your research, please cite the associated publication
-and this repository. Citation metadata is provided in the CITATION.cff file.
-
 ## License
 
 This project is released under the MIT License.
+
+
+## Author
+Keer Zhang
+
+## Citation
+
+If you use this code in your research, please use the following BibTex entry:
+```bash
+@article{zhang2024dropletcorrosion,
+  title   = {Development of a data-driven framework for monitoring corrosion under droplets},
+  author  = {Zhang, Keer and Mol, Arjan and Gonzalez-Garcia, Yaiza},
+  journal = {Corrosion Science},
+  url = {https://doi.org/10.1016/j.corsci.2025.113313}
+  year    = {2025},
+}
+```
