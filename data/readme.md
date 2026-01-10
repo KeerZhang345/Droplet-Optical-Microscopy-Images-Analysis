@@ -5,4 +5,4 @@ Intermediate metadata (segmentation masks, features,
 dataframes) are generated on-the-fly by the code.
 
 Full experimental datasets are available
-upon reasonable requests
+upon reasonable requests.
