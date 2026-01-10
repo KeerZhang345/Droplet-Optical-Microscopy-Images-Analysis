@@ -16,7 +16,6 @@ The package implements the image processing, segmentation, feature extraction,
 and analysis workflow described in the paper. It is intended to support
 **reproducible research workflows**, rather than turnkey industrial deployment.
 
----
 
 ## Overview
 
@@ -30,7 +29,6 @@ DropletCorLab provides tools for:
 The codebase is modular: users may run only selected parts of the pipeline
 depending on data availability and research needs.
 
----
 
 ## Installation
 
