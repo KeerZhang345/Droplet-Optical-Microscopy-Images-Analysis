@@ -1,7 +1,7 @@
 # DropletCorrLab  
 *(Droplet Optical Microscopy Images Analysis)*
 
-**DropletCorLab** is a research-oriented Python package for the analysis of
+**DropletCorrLab** is a research-oriented Python package for the analysis of
 optical microscopy images of droplets, with a focus on data-driven monitoring
 of corrosion processes occurring under droplets.
 
