@@ -19,12 +19,12 @@ dependencies = [
     "scipy",
     "scikit-image",
     "scikit-learn",
-    "opencv-python"
+    "opencv-python",
+    "torch"
 ]
 
 [project.optional-dependencies]
 segmentation = [
-    "torch",
     "torchvision",
     "segment-anything"
 ]
