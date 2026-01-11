@@ -1,9 +1,19 @@
 import numpy as np
 import cv2
 import torch
-from segment_anything import sam_model_registry, SamAutomaticMaskGenerator
-import segment_anything.automatic_mask_generator
-from torchvision.ops import boxes as box_ops
+try:
+    from segment_anything import sam_model_registry, SamAutomaticMaskGenerator
+    import segment_anything.automatic_mask_generator
+    from torchvision.ops import boxes as box_ops
+except ImportError as e:
+    raise ImportError(
+        "SAM-based segmentation requires optional dependencies.\n\n"
+        "Install with:\n"
+        "  pip install droplet-corr-lab[segmentation]\n\n"
+        "You must also download SAM model weights separately.\n"
+        "See README for details."
+    ) from e
+
 
 # Save the original batched_nms function
 _orig_batched_nms = box_ops.batched_nms
@@ -645,5 +655,6 @@ class SAMMaskGenerator:
             path = os.path.join(save_dir, fname)
 
             cv2.imwrite(path, (mask_canvas * 255).astype(np.uint8))
+
 
 
