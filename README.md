@@ -61,7 +61,6 @@ and not included in the default installation.
 pip install droplet-corr-lab[segmentation]
 ```
 This installs:
-- torch
 - torchvision
 - segment-anything
 
