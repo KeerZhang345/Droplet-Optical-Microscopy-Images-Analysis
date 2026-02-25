@@ -146,6 +146,7 @@ def detect_droplet_regions(
         width = max_col - min_col
         height = max_row - min_row
         object_aspect_ratio = width / height if height != 0 else 0
+        object_aspect_ratio = object_aspect_ratio if object_aspect_ratio < 1 else 1/object_aspect_ratio
 
         droplet = {
             "bbox": str([min_col, min_row, max_col, max_row]),
@@ -159,5 +160,6 @@ def detect_droplet_regions(
 
 
     return droplets
+
 
 
