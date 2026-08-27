@@ -7,7 +7,7 @@ name = "droplet-corr-lab"
 version = "0.1.0"
 description = "Droplet-level corrosion analysis with ROI-based feature extraction"
 authors = [
-    { name = "Kathy Zhang" }
+    { name = "KeerZhang" }
 ]
 readme = "README.md"
 license = { file = "LICENSE" }
